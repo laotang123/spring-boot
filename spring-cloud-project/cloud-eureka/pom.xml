@@ -16,4 +16,13 @@
 		<maven.compiler.target>8</maven.compiler.target>
 	</properties>
 
+
+	<dependencies>
+
+		<!--eureka server-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
+	</dependencies>
 </project>
