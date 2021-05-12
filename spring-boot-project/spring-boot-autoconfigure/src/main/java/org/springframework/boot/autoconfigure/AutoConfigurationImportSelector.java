@@ -114,6 +114,7 @@ public class AutoConfigurationImportSelector implements DeferredImportSelector, 
 	 * of the importing {@link Configuration @Configuration} class.
 	 * @param annotationMetadata the annotation metadata of the configuration class
 	 * @return the auto-configurations that should be imported
+	 * 获取spring.factories中EnableServerConfiguration对应的value——》过滤——》监听器
 	 */
 	protected AutoConfigurationEntry getAutoConfigurationEntry(AnnotationMetadata annotationMetadata) {
 		if (!isEnabled(annotationMetadata)) {

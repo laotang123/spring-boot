@@ -1,11 +1,73 @@
+# 双节点
+#---
+#spring:
+#  profiles: peer1
+#  application:
+#    name: eureka-peer1
+#eureka:
+#  instance:
+#    hostname: peer1
+#
+#  client:
+#    service-url:
+#      defaultZone: http://peer2:8762/eureka/
+#server:
+#  port: 8761
+#
+## 节点2
+#---
+#spring:
+#  profiles: peer2
+#  application:
+#    name: eureka-peer2
+#eureka:
+#  instance:
+#    hostname: peer2
+#
+#  client:
+#    service-url:
+#      defaultZone: http://peer1:8761/eureka
+#server:
+#  port: 8762
+
+# 三节点
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/
+spring:
+  application:
+    name: cloud-eureka
+---
+spring:
+  profiles: peer1
+
+eureka:
+  instance:
+    hostname: peer1
+
 server:
   port: 8761
 
+# 节点2
+---
 spring:
-  application:
-    name: cloud-eureka-server
+  profiles: peer2
 
 eureka:
-  client:
-    fetch-registry: false # 不拉取服务注册表
-    register-with-eureka: false # 不向eureka服务端注册
+  instance:
+    hostname: peer2
+
+server:
+  port: 8762
+
+# 节点3
+---
+spring:
+  profiles: peer3
+
+eureka:
+  instance:
+    hostname: peer3
+server:
+  port: 8763
