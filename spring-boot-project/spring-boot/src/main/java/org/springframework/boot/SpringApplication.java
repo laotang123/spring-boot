@@ -423,6 +423,7 @@ public class SpringApplication {
 		// Load the sources
 		Set<Object> sources = getAllSources();
 		Assert.notEmpty(sources, "Sources must not be empty");
+		//加载spring-boot启动的主类
 		load(context, sources.toArray(new Object[0]));
 		listeners.contextLoaded(context);
 	}
