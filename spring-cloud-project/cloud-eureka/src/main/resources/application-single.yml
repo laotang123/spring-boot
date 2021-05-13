@@ -9,3 +9,7 @@ eureka:
   client:
     fetch-registry: false # 不拉取服务注册表
     register-with-eureka: false # 不向eureka服务端注册
+  server:
+#    response-cache-update-interval-ms: 1000 # readOnlyMap和readWriteMap更新时间，readOnly开启
+#    use-read-only-response-cache: true
+    eviction-interval-timer-in-ms: 1000
