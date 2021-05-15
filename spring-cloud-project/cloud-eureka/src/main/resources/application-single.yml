@@ -9,6 +9,10 @@ eureka:
   client:
     fetch-registry: false # 不拉取服务注册表
     register-with-eureka: false # 不向eureka服务端注册
+
+  instance:
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds:
   server:
 #    response-cache-update-interval-ms: 1000 # readOnlyMap和readWriteMap更新时间，readOnly开启
 #    use-read-only-response-cache: true
