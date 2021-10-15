@@ -23,7 +23,7 @@ public class LogAdvice {
 	/**
 	 * 连接点，即正则匹配的方法
 	 */
-	@Pointcut("execution(* indi.ljf.springboot.debug.controller.*.*(..))")
+	@Pointcut("execution(* indi.ljf.springboot.debug.*.*.*(..))")
 	public void pointcut() {
 	}
 

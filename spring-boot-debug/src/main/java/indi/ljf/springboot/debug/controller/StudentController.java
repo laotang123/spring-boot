@@ -1,9 +1,9 @@
 package indi.ljf.springboot.debug.controller;
 
+import indi.ljf.springboot.debug.entity.Student;
+import indi.ljf.springboot.debug.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: ljf
@@ -13,19 +13,24 @@ import org.springframework.web.bind.annotation.RestController;
  * @version: $ 1.0
  */
 @RestController
-public class HelloController {
+public class StudentController {
 	@Autowired
-	private HelloService helloService;
+	private StudentService studentService;
 
 	@GetMapping("/hello")
 	public String hello(@RequestParam String name) {
 //		int j = 1 / 0;
-		return helloService.hello("controller " + name);
+		return studentService.hello("controller " + name);
 //		return "hello, " + name;
 	}
 
 	@GetMapping("/callback")
 	public String callback(@RequestParam String name) {
 		return "callback," + name;
+	}
+
+	@GetMapping("/students/{id}")
+	public String query(@PathVariable Integer id) {
+		return studentService.query(id).toString();
 	}
 }

@@ -1,5 +1,7 @@
-package indi.ljf.springboot.debug.controller;
+package indi.ljf.springboot.debug.service;
 
+import indi.ljf.springboot.debug.entity.Student;
+import indi.ljf.springboot.debug.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,17 +13,23 @@ import org.springframework.stereotype.Service;
  * @version: $ 1.0
  */
 @Service
-public class HelloService {
-	//	@Autowired
-//	private HelloController helloController;
-//
+public class StudentService {
+	@Autowired
+	private StudentMapper studentMapper;
+
+	//
 //	public String hello(String name) {
 //		return String.format(helloController.callback(name) + " %s,service", name);
 //	}
-	public HelloService(){
+	public StudentService() {
 		System.out.println("helloService init");
 	}
+
 	public String hello(String name) {
 		return "service, " + name;
+	}
+
+	public Student query(Integer id) {
+		return studentMapper.selectByPrimaryKey(id);
 	}
 }
