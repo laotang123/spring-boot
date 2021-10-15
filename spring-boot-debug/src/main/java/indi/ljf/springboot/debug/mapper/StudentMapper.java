@@ -9,7 +9,7 @@ public interface StudentMapper {
 
     int insert(Student record);
 
-    int insertSelective(Student record);
+    int insertSelective(Student student);
 
     Student selectByPrimaryKey(Integer id);
 

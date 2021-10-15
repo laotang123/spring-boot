@@ -32,4 +32,8 @@ public class StudentService {
 	public Student query(Integer id) {
 		return studentMapper.selectByPrimaryKey(id);
 	}
+
+	public Integer addStudent(Student student) {
+		return studentMapper.insertSelective(student);
+	}
 }

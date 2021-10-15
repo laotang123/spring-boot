@@ -33,4 +33,9 @@ public class StudentController {
 	public String query(@PathVariable Integer id) {
 		return studentService.query(id).toString();
 	}
+
+	@PostMapping("/students")
+	public Integer create(@RequestBody Student student) {
+		return studentService.addStudent(student);
+	}
 }
