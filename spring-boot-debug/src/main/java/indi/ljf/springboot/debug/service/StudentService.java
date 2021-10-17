@@ -4,6 +4,7 @@ import indi.ljf.springboot.debug.entity.Student;
 import indi.ljf.springboot.debug.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author: ljf
@@ -33,7 +34,9 @@ public class StudentService {
 		return studentMapper.selectByPrimaryKey(id);
 	}
 
+	@Transactional
 	public Integer addStudent(Student student) {
+		int i = 1 / 0;
 		return studentMapper.insertSelective(student);
 	}
 }
